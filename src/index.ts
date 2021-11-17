@@ -1,7 +1,7 @@
 type RedirectTo = {
-  to: string,
-  relative?: boolean,
-  code: number,
+  to: string
+  relative?: boolean
+  code: number
 }
 
 const redirectMap = new Map<string, RedirectTo>([
@@ -10,23 +10,23 @@ const redirectMap = new Map<string, RedirectTo>([
     {
       relative: true,
       to: '/blog/2015/12/19/factory-girl.html',
-      code: 301
+      code: 301,
     },
   ],
   [
     '/piet/C89Book.pdf',
     {
       to: 'https://github.com/nna774/C89Book2/releases/download/v1.0/C89Book_honban.pdf',
-      code: 302
-    }
+      code: 302,
+    },
   ],
   [
     '/piet/C91Book.pdf',
     {
       to: 'https://github.com/nna774/C91book/releases/download/1.0.1/C91Book.pdf',
-      code: 302
-    }
-  ]
+      code: 302,
+    },
+  ],
 ])
 
 function redirect(origin: string, r: RedirectTo): Response {
