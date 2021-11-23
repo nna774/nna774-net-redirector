@@ -1,3 +1,5 @@
+const canonicalOrigin = 'https://nna774.net'
+
 type RedirectTo = {
   to: string
   relative?: boolean
@@ -39,6 +41,10 @@ function redirect(origin: string, r: RedirectTo): Response {
 async function handleRequest(request: Request): Promise<Response> {
   const requestURL = new URL(request.url)
   const path = requestURL.pathname
+  if (requestURL.origin !== canonicalOrigin) {
+    return Response.redirect(canonicalOrigin + requestURL.pathname, 301)
+  }
+
   const redirectTo = redirectMap.get(path)
   if (redirectTo) {
     return redirect(requestURL.origin, redirectTo)
