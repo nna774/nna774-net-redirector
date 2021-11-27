@@ -29,4 +29,9 @@ describe('handle', () => {
     expect(result.status).toEqual(302)
     expect(result.headers.get('Location')).toEqual('https://github.com/nna774/C91book/releases/download/1.0.1/C91Book.pdf')
   })
+  test('redirect factory_girl', async () => {
+    const result = await handleRequest(new Request('https://nna774.net/blog/2015/12/19/factory_girl.html', { method: 'GET' }))
+    expect(result.status).toEqual(301)
+    expect(result.headers.get('Location')).toEqual('https://nna774.net/blog/2015/12/19/factory-girl.html')
+  })
 })
