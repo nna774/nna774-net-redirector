@@ -55,6 +55,23 @@ const redirectMap = makeMap([
       code: 301,
     },
   },
+  {
+    k: { path: '/reikai01' },
+    r: {
+      relative: true,
+      to: '/reikai01/',
+      code: 302,
+    },
+  },
+  {
+    k: { path: '/reikai01/' },
+    r: {
+      to: 'https://nna774.github.io/reikai01/',
+      // https://www.slideshare.net/KMC_JP/output-29338451 から被リンクあり(昔はgithub pagesをnna774.netで動かしてた名残)。
+      // 8年前のスライド……となったけど、リンク壊れてるよ とわざわざ教えてもらえたので、直しておく。
+      code: 301,
+    },
+  },
 ])
 
 function redirect(req: Request, to: RedirectTo): Response {
