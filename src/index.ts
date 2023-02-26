@@ -1,4 +1,4 @@
-import { handleRequest } from '../src/handler'
+import { handleRequest } from './handler'
 import { wellKnownHander } from './well-known'
 
 addEventListener('fetch', (event) => {
